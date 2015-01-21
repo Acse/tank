@@ -33,7 +33,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../../configuration/programdata/tank/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../coocox/coide/configuration/programdata/tank/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -87,26 +87,26 @@
     <File name="TM/ACSE_math.c" path="D:/fejlesztes/stm33f4_library/ACSE_math.c" type="1"/>
     <File name="TM/tm_stm32f4_disco.h" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_disco.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
-    <File name="TM/infra_path.c" path="../servo/infra_path.c" type="1"/>
+    <File name="TM/infra_path.c" path="infra_path.c" type="1"/>
     <File name="TM/defines.h" path="D:/fejlesztes/stm33f4_library/defines.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
     <File name="TM/tm_stm32f4_delay.c" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_delay.c" type="1"/>
     <File name="TM/tm_stm32f4_usart.h" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_usart.h" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="TM/tm_stm32f4_servo.c" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_servo.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>
     <File name="TM/tm_stm32f4_adc.h" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_adc.h" type="1"/>
     <File name="TM/tm_stm32f4_timer_properties.h" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_timer_properties.h" type="1"/>
-    <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="TM/tm_stm32f4_disco.c" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_disco.c" type="1"/>
+    <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
     <File name="TM/tm_stm32f4_servo.h" path="D:/fejlesztes/stm33f4_library/tm_stm32f4_servo.h" type="1"/>
     <File name="stdio/printf.c" path="stdio/printf.c" type="1"/>
@@ -120,7 +120,7 @@
     <File name="TM" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_adc.h" path="cmsis_lib/include/stm32f4xx_adc.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
-    <File name="TM/infra_path.h" path="../servo/infra_path.h" type="1"/>
+    <File name="TM/infra_path.h" path="infra_path.h" type="1"/>
     <File name="TM/ACSE_math.h" path="D:/fejlesztes/stm33f4_library/ACSE_math.h" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_lib" path="" type="2"/>
