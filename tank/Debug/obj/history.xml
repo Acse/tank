@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F401VC -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -ID:\fejlesztes -ID:\ -I..\..\..\workspace\tank -I..\..\..\workspace\tank\cmsis_boot -I..\..\..\workspace -ID:\fejlesztes\stm33f4_library -I..\..\..\workspace\tank\cmsis -I..\..\..\workspace\servo -I..\..\.. -I..\..\..\workspace\tank\cmsis_lib -I..\..\..\workspace\tank\cmsis_lib\include">
+      <target file="tm_stm32f4_usart.o" lastModified="14b0900a59c">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_usart.c" lastModified="148feda3c7f"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="14b0900acbb">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="149ce3c1203"/>
+      </target>
+      <target file="infra_path.o" lastModified="14b0dec2bb5">
+         <source file="..\..\..\..\servo\infra_path.c" lastModified="14b0dec2370"/>
+      </target>
+      <target file="tm_stm32f4_servo.o" lastModified="14b0900999a">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_servo.c" lastModified="149af6f1e21"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14b0900a078">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="149ce374e10"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="14b0900b8bd">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="149ce3c2f14"/>
+      </target>
+      <target file="stm32f4xx_adc.o" lastModified="14b0900a773">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="14b040cd2b2"/>
+      </target>
+      <target file="tm_stm32f4_pwm.o" lastModified="14b0900b188">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_pwm.c" lastModified="1488ead7968"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="14b0900ae66">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="149ce84052a"/>
+      </target>
+      <target file="printf.o" lastModified="14b0900a8ad">
+         <source file="..\..\..\stdio\printf.c" lastModified="149d316f2af"/>
+      </target>
+      <target file="tm_stm32f4_timer_properties.o" lastModified="14b0900b675">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_timer_properties.c" lastModified="1488eb27875"/>
+      </target>
+      <target file="misc.o" lastModified="14b0900b4d0">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="149ce3ca6e4"/>
+      </target>
+      <target file="tm_stm32f4_disco.o" lastModified="14b09009f58">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_disco.c" lastModified="1498709147f"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="14b0900a3c2">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="149ce3bf9da"/>
+      </target>
+      <target file="tm_stm32f4_adc.o" lastModified="14b09009dc0">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_adc.c" lastModified="149afc8f395"/>
+      </target>
+      <target file="syscalls.o" lastModified="14b0900afb4">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="149d316b6ce"/>
+      </target>
+      <target file="ACSE_math.o" lastModified="14b0900ab5b">
+         <source file="D:\fejlesztes\stm33f4_library\ACSE_math.c" lastModified="149f73922ff"/>
+      </target>
+      <target file="tm_stm32f4_delay.o" lastModified="14b0900aa5c">
+         <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_delay.c" lastModified="14817f2c765"/>
+      </target>
+      <target file="main.o" lastModified="14b0e0e439b">
+         <source file="..\..\..\main.c" lastModified="14b0e0e3cef"/>
+      </target>
+      <target file="stm32f4xx_usart.o" lastModified="14b09009ba1">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="149ce3c81f2"/>
+      </target>
+   </processor>
+</history>
