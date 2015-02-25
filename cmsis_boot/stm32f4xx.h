@@ -47,6 +47,8 @@
 #ifndef __STM32F4xx_H
 #define __STM32F4xx_H
 
+#define ARM_MATH_CM4
+
 #ifdef __cplusplus
  extern "C" {
 #endif /* __cplusplus */

@@ -1,21 +1,17 @@
 /* Motor H-bridge connections
 
+grey STBY PD6
+blue PWMA PB4 TIM3 PP2 CH1
+green AIN2 PB6
+yellow AIN1 PB7
+orange BIN1 PD7
+red BIN2 PB3
+brown PWMB PB5 TIM3 PP2 CH2
 
-H1
-PC6 2P
-PC7 1P
-PC8 2N TM_PWM_Channel_3
-PC9 1N TM_PWM_Channel_4
-
-H2
-PB4 2N TM_PWM_Channel_1
-PB5 1N TM_PWM_Channel_2
-PB7 1P
-PD7 2P
 
 */
 
-
+#define ARM_MATH_CM4
 /* Include core modules */
 #include "stm32f4xx.h"
 /* Include my libraries here */
@@ -27,6 +23,8 @@ PD7 2P
 #include "tm_stm32f4_adc.h"
 #include "ACSE_math.h"
 #include "infra_path.h"
+#include "arm_math.h"
+
 
 #include <stdio.h>
 //#include "tm_stm32f4_stdio.h"
@@ -42,100 +40,97 @@ typedef enum {
 } tank_direction_t;
 
 TM_PWM_TIM_t TIM3_Data;
-int tank_speed_default = 45;
+int tank_speed_default = 98;
 int tank_speed;
 char str[40];
 int i = 0;
 uint8_t c;
 int scanned = 0;
 
+FILE USART2_Stream;
 
+int USART2_Stream_OutputFunction(int ch, FILE* f);
+
+
+/* USART2_Stream function that will send char by char to stream */
+int USART2_Stream_OutputFunction(int ch, FILE* f) {
+    /* Send char via USART2 */
+    TM_USART_Putc(USART2, (char) ch);
+
+    /* Return ch, it means OK */
+    return ch;
+    /* If you want to return error, then you have to send EOF (-1) */
+    //return -1;
+}
 
 void tank_move(tank_direction_t direction, int speed){
 
 switch (direction){
    case tank_direction_forward:
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_1, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_2, speed);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_3, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_4, speed);
-      GPIO_SetBits(GPIOB, GPIO_Pin_7);
-      //GPIO_SetBits(GPIOD, GPIO_Pin_7);
-      //GPIO_SetBits(GPIOC, GPIO_Pin_6);
-      GPIO_SetBits(GPIOC, GPIO_Pin_7);
-      //GPIO_ResetBits(GPIOB, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOD, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-      //GPIO_ResetBits(GPIOC, GPIO_Pin_7);
+
+	   GPIO_SetBits(GPIOB, GPIO_Pin_6);
+	   GPIO_SetBits(GPIOD, GPIO_Pin_7);
+	   GPIO_ResetBits(GPIOB, GPIO_Pin_7);
+	   GPIO_ResetBits(GPIOB, GPIO_Pin_3);
+
+	  //set STBY high enabling H bridges
+	  GPIO_SetBits(GPIOD, GPIO_Pin_6);
+
+
+
+
 
       break;
 
    case tank_direction_backward:
-	   TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_1, speed);
-	   TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_2, 0);
-	   TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_3, speed);
-	   TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_4, 0);
-	   //GPIO_SetBits(GPIOB, GPIO_Pin_7);
-	   GPIO_SetBits(GPIOD, GPIO_Pin_7);
-	   GPIO_SetBits(GPIOC, GPIO_Pin_6);
-	   //GPIO_SetBits(GPIOC, GPIO_Pin_7);
-	   GPIO_ResetBits(GPIOB, GPIO_Pin_7);
-	   //GPIO_ResetBits(GPIOD, GPIO_Pin_7);
-	   //GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-	   GPIO_ResetBits(GPIOC, GPIO_Pin_7);
+	   GPIO_SetBits(GPIOB, GPIO_Pin_7);
+	   GPIO_ResetBits(GPIOD, GPIO_Pin_7);
+	   GPIO_ResetBits(GPIOB, GPIO_Pin_6);
+	   GPIO_SetBits(GPIOB, GPIO_Pin_3);
+
+	   	  //set STBY high enabling H bridges
+	   	  GPIO_SetBits(GPIOD, GPIO_Pin_6);
 
 
       break;
 
    case tank_direction_turnright:
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_1, speed);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_2, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_3, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_4, speed);
-      //GPIO_SetBits(GPIOB, GPIO_Pin_7);
-      GPIO_SetBits(GPIOD, GPIO_Pin_7);
-      //GPIO_SetBits(GPIOC, GPIO_Pin_6);
-      GPIO_SetBits(GPIOC, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOB, GPIO_Pin_7);
-      //GPIO_ResetBits(GPIOD, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-      //GPIO_ResetBits(GPIOC, GPIO_Pin_7);
+	   GPIO_SetBits(GPIOB, GPIO_Pin_6);
+	   GPIO_ResetBits(GPIOD, GPIO_Pin_7);
+	   GPIO_ResetBits(GPIOB, GPIO_Pin_7);
+	   GPIO_SetBits(GPIOB, GPIO_Pin_3);
+
+	   	  //set STBY high enabling H bridges
+	   	  GPIO_SetBits(GPIOD, GPIO_Pin_6);
 
 
       break;
 
    case tank_direction_turnleft:
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_1, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_2, speed);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_3, speed);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_4, 0);
-      GPIO_SetBits(GPIOB, GPIO_Pin_7);
-      //GPIO_SetBits(GPIOD, GPIO_Pin_7);
-      GPIO_SetBits(GPIOC, GPIO_Pin_6);
-      //GPIO_SetBits(GPIOC, GPIO_Pin_7);
-      //GPIO_ResetBits(GPIOB, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOD, GPIO_Pin_7);
-      //GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-      GPIO_ResetBits(GPIOC, GPIO_Pin_7);
+	   GPIO_SetBits(GPIOB, GPIO_Pin_7);
+	   GPIO_SetBits(GPIOD, GPIO_Pin_7);
+	   GPIO_ResetBits(GPIOB, GPIO_Pin_6);
+	   GPIO_ResetBits(GPIOB, GPIO_Pin_3);
+
+	   	  //set STBY high enabling H bridges
+	   	  GPIO_SetBits(GPIOD, GPIO_Pin_6);
 
 
       break;
 
    case tank_direction_stop:
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_1, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_2, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_3, 0);
-      TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_4, 0);
-      GPIO_ResetBits(GPIOB, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOD, GPIO_Pin_7);
-      GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-      GPIO_ResetBits(GPIOC, GPIO_Pin_7);
+
+	  GPIO_ResetBits(GPIOD, GPIO_Pin_6);
+
+
+
    
 	break;
 
    default:
-      GPIO_ResetBits(GPIOB, GPIO_Pin_4 | GPIO_Pin_5);
-      GPIO_ResetBits(GPIOC, GPIO_Pin_13 | GPIO_Pin_14);
+
+	  GPIO_ResetBits(GPIOD, GPIO_Pin_6);
+
     break;
 }
 }
@@ -149,10 +144,16 @@ void init_tank_pwm (){
     TM_PWM_InitChannel(TIM3, TM_PWM_Channel_1, TM_PWM_PinsPack_2);
     /* Initialize PWM on TIM3, Channel 2 and PinsPack 2 = PB5 */
     TM_PWM_InitChannel(TIM3, TM_PWM_Channel_2, TM_PWM_PinsPack_2);
-    /* Initialize PWM on TIM3, Channel 3 and PinsPack 2 = PC8 */
+
+    TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_1, tank_speed);
+    TM_PWM_SetChannelPercent(TIM3, &TIM3_Data, TM_PWM_Channel_2, tank_speed);
+
+    /*
+    // Initialize PWM on TIM3, Channel 3 and PinsPack 2 = PC8
     TM_PWM_InitChannel(TIM3, TM_PWM_Channel_3, TM_PWM_PinsPack_2);
-    /* Initialize PWM on TIM3, Channel 4 and PinsPack 2 = PC9 */
+    // Initialize PWM on TIM3, Channel 4 and PinsPack 2 = PC9
     TM_PWM_InitChannel(TIM3, TM_PWM_Channel_4, TM_PWM_PinsPack_2);
+    */
 }
 
 void init_tank_gpio (){
@@ -178,7 +179,7 @@ void init_tank_gpio (){
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
 
-    GPIO_InitDef.GPIO_Pin = GPIO_Pin_7;
+    GPIO_InitDef.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_6| GPIO_Pin_7;
     GPIO_InitDef.GPIO_Mode = GPIO_Mode_OUT;
     GPIO_InitDef.GPIO_OType = GPIO_OType_PP;
     GPIO_InitDef.GPIO_PuPd = GPIO_PuPd_UP;
@@ -199,7 +200,7 @@ void init_tank_gpio (){
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
-        GPIO_InitDef.GPIO_Pin = GPIO_Pin_7;
+        GPIO_InitDef.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
         GPIO_InitDef.GPIO_Mode = GPIO_Mode_OUT;
         GPIO_InitDef.GPIO_OType = GPIO_OType_PP;
         GPIO_InitDef.GPIO_PuPd = GPIO_PuPd_UP;
@@ -259,6 +260,7 @@ int main(void) {
     SystemInit();
     //Initialize USART2 at 9600 baud, TX: PA2, RX: PA3
     TM_USART_Init(USART2, TM_USART_PinsPack_1, 115200);
+  //  TM_STDIO_SetOutputFunction(&USART2_Stream, USART2_Stream_OutputFunction);
     init_tank_pwm ();
     init_tank_gpio ();
     TM_DELAY_Init();

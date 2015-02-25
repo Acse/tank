@@ -38,14 +38,15 @@ void freeway_detect (){
 			int num[x];
 			TM_SERVO_SetDegrees(&Servo1, 45);
 			Delayms(300);
-for (deg =45 ;deg < 135; deg++){
+for (deg =45 ;deg <= 135; deg++){
 	temp=0;
 			for (var = 0; var < x; ++var) {
 				num[var] = TM_ADC_Read(ADC1, ADC_Channel_12);
 				temp+=num[var];
 				Delay(100);
 			}
-			u=(temp/x)/100;
+			u=(temp/x);/*(temp/x)*arm_cos_f32(((deg-90)/180)*3.1415926);*/
+
 
 			itoa(u, str);
 			TM_USART_Puts(USART2, str);
@@ -99,9 +100,9 @@ for (var2 = 0; var2 < x2; ++var2) {
 					Delay(5);
 				}
 
-i2=(temp2/x2)/100;
+i2=(temp2/x2);
 
-if (i2>20) {
+if (i2>2000) {
 	ret = 1;
 }
 else ret = 0;
