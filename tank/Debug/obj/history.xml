@@ -1,64 +1,97 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F401VC -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -ID:\fejlesztes -ID:\ -I..\..\..\workspace\tank -I..\..\..\workspace\tank\cmsis_boot -I..\..\..\workspace -ID:\fejlesztes\stm33f4_library -I..\..\..\workspace\tank\cmsis -I..\..\..\workspace\servo -I..\..\.. -I..\..\..\workspace\tank\cmsis_lib -I..\..\..\workspace\tank\cmsis_lib\include">
-      <target file="tm_stm32f4_usart.o" lastModified="14b0900a59c">
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F401VC -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__FPU_USED -I..\..\..\..\..\dev\tank\FreeRTOS\Source\portable\GCC\ARM_CM4F -ID:\fejlesztes -I..\..\..\..\..\dev\tank\cmsis_boot -ID:\ -I..\..\..\..\..\dev\tank\cmsis_lib\include -I..\..\..\..\..\dev\tank\FreeRTOS\Source\portable -ID:\fejlesztes\stm33f4_library -I..\..\..\..\.. -I..\..\..\..\..\dev\tank\STM_disco -I..\..\..\..\..\dev\tank\cmsis_lib -I..\..\..\..\..\dev\tank\FreeRTOS\Source\portable\GCC -I..\..\..\..\..\dev\tank\FreeRTOS\Source\include -I..\..\..\..\..\dev -I..\..\..\..\..\dev\tank\cmsis -I..\..\..\..\..\dev\tank -I..\..\..\..\..\dev\tank\FreeRTOS\Source -I..\..\..\..\..\dev\tank\FreeRTOS -I..\..\..\..\..\dev\stm32f429\00-STM32F429_LIBRARIES -I..\..\..\..\..\dev\stm32f429">
+      <target file="tm_stm32f4_usart.o" lastModified="14bd251d620">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_usart.c" lastModified="148feda3c7f"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="14b0900acbb">
+      <target file="stm32f4xx_exti.o" lastModified="14bd251f2c7">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14bd1fd0f88"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="14bd251e059">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="149ce3c1203"/>
       </target>
-      <target file="infra_path.o" lastModified="14b0dec2bb5">
-         <source file="..\..\..\..\servo\infra_path.c" lastModified="14b0dec2370"/>
+      <target file="tasks.o" lastModified="14bd76d51db">
+         <source file="..\..\..\FreeRTOS\Source\tasks.c" lastModified="14af2c59338"/>
       </target>
-      <target file="tm_stm32f4_servo.o" lastModified="14b0900999a">
+      <target file="infra_path.o" lastModified="14bd77df426">
+         <source file="..\..\..\infra_path.c" lastModified="14bd77ded46"/>
+      </target>
+      <target file="tm_stm32f4_servo.o" lastModified="14bd251c546">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_servo.c" lastModified="149af6f1e21"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="14b0900a078">
+      <target file="stm32f4xx_syscfg.o" lastModified="14bd251c3c4">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14bd1fd5b81"/>
+      </target>
+      <target file="event_groups.o" lastModified="14bd76d5dcf">
+         <source file="..\..\..\FreeRTOS\Source\event_groups.c" lastModified="14af2c4f0cc"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14bd251cc75">
          <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="149ce374e10"/>
       </target>
-      <target file="stm32f4xx_tim.o" lastModified="14b0900b8bd">
+      <target file="croutine.o" lastModified="14bd76d5b9c">
+         <source file="..\..\..\FreeRTOS\Source\croutine.c" lastModified="14af2c4eed0"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="14bd251fa70">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="149ce3c2f14"/>
       </target>
-      <target file="stm32f4xx_adc.o" lastModified="14b0900a773">
+      <target file="stm32f4xx_adc.o" lastModified="14bd251d843">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="14b040cd2b2"/>
       </target>
-      <target file="tm_stm32f4_pwm.o" lastModified="14b0900b188">
+      <target file="tm_stm32f4_pwm.o" lastModified="14bd251eb66">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_pwm.c" lastModified="1488ead7968"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="14b0900ae66">
+      <target file="system_stm32f4xx.o" lastModified="14bd251e3c9">
          <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="149ce84052a"/>
       </target>
-      <target file="printf.o" lastModified="14b0900a8ad">
+      <target file="printf.o" lastModified="14bd251d993">
          <source file="..\..\..\stdio\printf.c" lastModified="149d316f2af"/>
       </target>
-      <target file="tm_stm32f4_timer_properties.o" lastModified="14b0900b675">
+      <target file="tm_stm32f4_timer_properties.o" lastModified="14bd251f637">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_timer_properties.c" lastModified="1488eb27875"/>
       </target>
-      <target file="misc.o" lastModified="14b0900b4d0">
+      <target file="stm32f4_discovery.o" lastModified="14bd251ce23">
+         <source file="..\..\..\STM_disco\stm32f4_discovery.c" lastModified="147ff1cc4cc"/>
+      </target>
+      <target file="misc.o" lastModified="14bd251f476">
          <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="149ce3ca6e4"/>
       </target>
-      <target file="tm_stm32f4_disco.o" lastModified="14b09009f58">
+      <target file="heap_2.o" lastModified="14bd76d5fad">
+         <source file="..\..\..\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="14af2c557af"/>
+      </target>
+      <target file="tm_stm32f4_disco.o" lastModified="14bd251cb5f">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_disco.c" lastModified="1498709147f"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="14b0900a3c2">
+      <target file="queue.o" lastModified="14bd76d57ed">
+         <source file="..\..\..\FreeRTOS\Source\queue.c" lastModified="14af2c587b1"/>
+      </target>
+      <target file="list.o" lastModified="14bd76d53d9">
+         <source file="..\..\..\FreeRTOS\Source\list.c" lastModified="14af2c506ae"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="14bd251d229">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="149ce3bf9da"/>
       </target>
-      <target file="tm_stm32f4_adc.o" lastModified="14b09009dc0">
+      <target file="tm_stm32f4_adc.o" lastModified="14bd251c971">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_adc.c" lastModified="149afc8f395"/>
       </target>
-      <target file="syscalls.o" lastModified="14b0900afb4">
+      <target file="port.o" lastModified="14bd76d557b">
+         <source file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c" lastModified="14af2c51f61"/>
+      </target>
+      <target file="timers.o" lastModified="14bd76d4ed7">
+         <source file="..\..\..\FreeRTOS\Source\timers.c" lastModified="14af2c59580"/>
+      </target>
+      <target file="syscalls.o" lastModified="14bd251e50d">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="149d316b6ce"/>
       </target>
-      <target file="ACSE_math.o" lastModified="14b0900ab5b">
-         <source file="D:\fejlesztes\stm33f4_library\ACSE_math.c" lastModified="149f73922ff"/>
+      <target file="ACSE_math.o" lastModified="14bd251decc">
+         <source file="D:\fejlesztes\stm33f4_library\ACSE_math.c" lastModified="14b7082bab9"/>
       </target>
-      <target file="tm_stm32f4_delay.o" lastModified="14b0900aa5c">
+      <target file="tm_stm32f4_delay.o" lastModified="14bd251db48">
          <source file="D:\fejlesztes\stm33f4_library\tm_stm32f4_delay.c" lastModified="14817f2c765"/>
       </target>
-      <target file="main.o" lastModified="14b0e0e439b">
-         <source file="..\..\..\main.c" lastModified="14b0e0e3cef"/>
+      <target file="main.o" lastModified="14bdca065a8">
+         <source file="..\..\..\main.c" lastModified="14bdca05ecd"/>
       </target>
-      <target file="stm32f4xx_usart.o" lastModified="14b09009ba1">
+      <target file="stm32f4xx_usart.o" lastModified="14bd251c710">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="149ce3c81f2"/>
       </target>
    </processor>

@@ -1,27 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="4.8.4 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=tank.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\tank -TC:\CooCox\CoIDE\configuration\ProgramData\tank/arm-gcc-link.ld -g">
-      <target file="tank.elf" lastModified="14b0e0e463a">
-         <source file="..\obj\tm_stm32f4_servo.o" lastModified="14b0900999a"/>
-         <source file="..\obj\stm32f4xx_usart.o" lastModified="14b09009ba1"/>
-         <source file="..\obj\tm_stm32f4_adc.o" lastModified="14b09009dc0"/>
-         <source file="..\obj\tm_stm32f4_disco.o" lastModified="14b09009f58"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="14b0900a078"/>
-         <source file="..\obj\main.o" lastModified="14b0e0e439b"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14b0900a3c2"/>
-         <source file="..\obj\tm_stm32f4_usart.o" lastModified="14b0900a59c"/>
-         <source file="..\obj\stm32f4xx_adc.o" lastModified="14b0900a773"/>
-         <source file="..\obj\printf.o" lastModified="14b0900a8ad"/>
-         <source file="..\obj\tm_stm32f4_delay.o" lastModified="14b0900aa5c"/>
-         <source file="..\obj\ACSE_math.o" lastModified="14b0900ab5b"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14b0900acbb"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14b0900ae66"/>
-         <source file="..\obj\syscalls.o" lastModified="14b0900afb4"/>
-         <source file="..\obj\tm_stm32f4_pwm.o" lastModified="14b0900b188"/>
-         <source file="..\obj\infra_path.o" lastModified="14b0dec2bb5"/>
-         <source file="..\obj\misc.o" lastModified="14b0900b4d0"/>
-         <source file="..\obj\tm_stm32f4_timer_properties.o" lastModified="14b0900b675"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="14b0900b8bd"/>
+   <processor signature="4.8.4 -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -g -nostartfiles -Map=tank.map -O0 --gc-sections -lm -lgcc -lc -LC:\CooCox\CoIDE\configuration\ProgramData\tank -TC:\CooCox\CoIDE\configuration\ProgramData\tank/arm-gcc-link.ld -g">
+      <target file="tank.elf" lastModified="14bdca06876">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="14bd251c3c4"/>
+         <source file="..\obj\tm_stm32f4_servo.o" lastModified="14bd251c546"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="14bd251c710"/>
+         <source file="..\obj\tm_stm32f4_adc.o" lastModified="14bd251c971"/>
+         <source file="..\obj\tm_stm32f4_disco.o" lastModified="14bd251cb5f"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14bd251cc75"/>
+         <source file="..\obj\stm32f4_discovery.o" lastModified="14bd251ce23"/>
+         <source file="..\obj\main.o" lastModified="14bdca065a8"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14bd251d229"/>
+         <source file="..\obj\timers.o" lastModified="14bd76d4ed7"/>
+         <source file="..\obj\tm_stm32f4_usart.o" lastModified="14bd251d620"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="14bd251d843"/>
+         <source file="..\obj\printf.o" lastModified="14bd251d993"/>
+         <source file="..\obj\tasks.o" lastModified="14bd76d51db"/>
+         <source file="..\obj\ACSE_math.o" lastModified="14bd251decc"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14bd251e059"/>
+         <source file="..\obj\list.o" lastModified="14bd76d53d9"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14bd251e3c9"/>
+         <source file="..\obj\syscalls.o" lastModified="14bd251e50d"/>
+         <source file="..\obj\port.o" lastModified="14bd76d557b"/>
+         <source file="..\obj\queue.o" lastModified="14bd76d57ed"/>
+         <source file="..\obj\tm_stm32f4_pwm.o" lastModified="14bd251eb66"/>
+         <source file="..\obj\infra_path.o" lastModified="14bd77df426"/>
+         <source file="..\obj\croutine.o" lastModified="14bd76d5b9c"/>
+         <source file="..\obj\event_groups.o" lastModified="14bd76d5dcf"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="14bd251f2c7"/>
+         <source file="..\obj\misc.o" lastModified="14bd251f476"/>
+         <source file="..\obj\tm_stm32f4_timer_properties.o" lastModified="14bd251f637"/>
+         <source file="..\obj\heap_2.o" lastModified="14bd76d5fad"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="14bd251fa70"/>
       </target>
    </processor>
 </history>
